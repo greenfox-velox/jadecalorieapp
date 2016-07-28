@@ -77,9 +77,9 @@ h1 {
   color: #9b9b9b;
 }
 
-.todo-list{
+.food-list{
   display: flex;
-  flex-direction: column;
+  flex-direction: ;
   margin: 20px 50px;
 }
 
@@ -99,13 +99,19 @@ button{
 
 .foodholder{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   margin-left: 40px;
   font-family: Lato, sans-serif;
   font-weight: 400;
   width: 90%;
   color: #aeaeae;
+}
+
+.food-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /*input[type="checkbox"] {

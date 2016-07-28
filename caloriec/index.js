@@ -25,12 +25,17 @@ var Counter = React.createClass({
     });
   },
 
-  addMeal: function () {
-    // this.setState({
-    //   meal[0]: this.state.meal[0].id + 1,
-    // }
-    // );
-    console.log(this.state.meal[0].id);
+  addMeal: function (e) {
+    this.setState({
+      meal: [
+        {
+          id: this.state.meal.length + 1,
+          name: e.target.value,
+        }
+      ]
+    }
+    );
+    console.log(this.state);
   },
   //
   drawMeals: function () {
@@ -68,7 +73,7 @@ var Counter = React.createClass({
         <h1 className="col-sm-8">calorie counter</h1>
       </header>
         <div className="inputfield">
-          <input className="name" type="text" placeholder="insert food"/>
+          <input className="name" type="text" placeholder="insert food" onChange={this.addMeal}/>
           <input className="calorie" type="number" placeholder="insert number of calorie"/>
           <input className="date" type="date"/>
           <button className="button-text" onClick={this.addMeal}>

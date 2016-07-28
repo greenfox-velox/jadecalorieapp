@@ -32,27 +32,28 @@ var Counter = React.createClass({
     // );
     console.log(this.state.meal[0].id);
   },
-  //
+
   drawMeals: function () {
+
     this.setState({
-      mealElements: this.state.meal.map((meal) =>
-      <div>
-        <div className="food-item" id={meal.id}>
-          <p>{meal.name}</p>
-          <p>{meal.calorie}</p>
-          <p>{meal.date}</p>
-          <div className="buttons">
-            <button className="delete" type="button" onClick={this.deleteMeals} ></button>
-          </div>
-        </div>
-      </div>
+      mealElements: this.state.meal.map((meal) => this.insertHtml(meal)
+      // <div>
+      //   <div className="food-item" id={meal.id}>
+      //     <p>{meal.name}</p>
+      //     <p>{meal.calorie}</p>
+      //     <p>{meal.date}</p>
+      //     <div className="buttons">
+      //       <button className="delete" type="button" onClick={this.deleteMeals} ></button>
+      //     </div>
+      //   </div>
+      // </div>
     )});
   },
-  //
+
+
   // filterMeals: function () {
-  //
   // },
-  //
+
   deleteMeals: function () {
 
   },

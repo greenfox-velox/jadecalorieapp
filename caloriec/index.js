@@ -34,7 +34,13 @@ var Counter = React.createClass({
   },
   //
   drawMeals: function () {
-
+    this.setState({
+      oneelement: this.state.meal.map((meal) =>
+      <div>
+        <p>{meal.id}</p>
+        <p>{meal.name}</p>
+      </div>
+    )});
   },
   //
   // filterMeals: function () {
@@ -64,16 +70,17 @@ var Counter = React.createClass({
           </button>
           <button className="show-all">showall</button>
           <input className="filter" type="date"/>
-          <button className="buttonfilter">filter</button>
+          <button className="buttonfilter" onClick={this.drawMeals}>filter</button>
         </div>
         <button onClick={this.handleClick}>
           Click me! Number of clicks: {this.state.count}
         </button>
         <div className="food-list">
           <div className="foodholder">
+              {this.state.oneelement}
             <div className="fodo-item" id="food">here comes the foods</div>
             <div className="buttons"  id="1">
-              <button className="delete" type="button" onClick={}></button>
+              <button className="delete" type="button"></button>
             </div>
           </div>
         </div>

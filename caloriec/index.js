@@ -28,8 +28,8 @@ var Counter = React.createClass({
     // this.setState({
     //   meal[0]: this.state.meal[0].id + 1,
     // }
-    // );
-    console.log(this.getInitialState().meal[0].id);
+    );
+    console.log(this.getInitialState().meal[0].calorie);
   },
   //
   // drawMeals: function () {

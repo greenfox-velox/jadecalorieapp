@@ -20,7 +20,8 @@ var Counter = React.createClass({
 
   handleClick: function () {
     this.setState({
-      count: this.state.count + 2,
+
+      count: this.state.count + 1,
     });
   },
 
@@ -40,9 +41,9 @@ var Counter = React.createClass({
   //
   // },
   //
-  // deleteMeals: function () {
-  //
-  // },
+  deleteMeals: function () {
+
+  },
   //
   // sumCalorie: function () {
   //

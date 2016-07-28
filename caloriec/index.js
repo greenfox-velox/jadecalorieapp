@@ -25,46 +25,66 @@ var Counter = React.createClass({
     });
   },
 
-  addMeal: function (e) {
-    let generatedId = this.state.meal.length + 1;
-    let newMeal = e.target.value;
+  handleInputMealChange: function(e) {
+     this.setState({inputMeal: e.target.value});
+  },
+
+  handleInputCalorieChange: function(e) {
+     this.setState({inputCalorie: e.target.value});
+  },
+
+  handleInputDateChange: function(e) {
+     this.setState({inputDate: e.target.value});
+  },
+
+  addMeal: function () {
+    console.log(this.state.inputMeal);
+    console.log(this.state.inputCalorie);
+    console.log(this.state.inputDate);
+    console.log(this.state.meal.length);
+    console.log(this.state.meal[this.state.meal.length - 1].id);
+
+    let generatedId = this.state.meal[this.state.meal.length - 1].id + 1;
+    let newMeal = {
+      id: generatedId,
+      name: this.state.inputMeal,
+      calorie: Number(this.state.inputCalorie),
+      date: this.state.inputDate
+      };
     console.log(generatedId);
     console.log(newMeal);
     console.log(this.state.meal);
-    this.setState(
-      {meal: this.state.meal.concat([
-        {
-          id: generatedId,
-          name: newMeal,
-        }
-      ])
+    this.setState({
+      meal: this.state.meal.push(newMeal),
       }
     );
+    console.log(this.state.meal[this.state.meal.length - 1]);
   },
 
   drawMeals: function () {
+    console.log(this.state.meal[this.state.meal.length - 1]);
   },
 
-  // onFilterChange: function(e) {
-  //   this.props.onChange(Object.assign({}, this.props.value, {filter: e.target.value}));
-  //   console.log(e.target.value);
-  // },
-  //
-  // onSubmit: function(e) {
-  //   e.preventDefault();
-  //   this.props.onSubmit();
-  //   console.log(e.target.value);
-  // },
-
-
-
+  handleFilterChange: function(e) {
+     this.setState({filter: e.target.value});
+  },
 
   filterMeals: function () {
-
-    // e.target.value,
+    console.log(this.state.filter);
+    this.setState({
+      meal: this.state.meal.filter(function(meal){
+      return this.state.filter === meal.date}),
+    })
   },
 
-  deleteMeals: function () {
+  deleteMeals: function (e) {
+    console.log(e.target.id);
+    // console.log(this.state.meal.id);
+    this.setState({
+      meal: this.state.meal.filter(function(meal){
+      return e.target.id !== meal.id}),
+    })
+
     // this.setState({
     //   mealElements: this.state.meal.map((meal) =>
     //   <div>
@@ -81,12 +101,12 @@ var Counter = React.createClass({
     //   //   <p>{meal.name}</p>
     //   // </div>
     // )});
-    this.setState({
-     meal: this.state.meal[1].splice
-    });
-    console.log(this.state.meal[0]);
-    console.log(this.state.meal[1]);
-    this.drawMeals()
+    // this.setState({
+    //  meal: this.state.meal[1].splice
+    // });
+    // console.log(this.state.meal[0]);
+    // console.log(this.state.meal[1]);
+    // this.drawMeals()
   },
 
   render: function () {
@@ -95,18 +115,16 @@ var Counter = React.createClass({
       <header className="container">
         <h1 className="col-sm-8">calorie counter</h1>
       </header>
-        <div className="inputfield" onSubmit={this.onSubmit}>
-          <input className="name" type="text" placeholder="insert food" onChange={this.addMeal}/>
-          <input className="calorie" type="number" placeholder="insert number of calorie"/>
-          <input className="date" type="date"/>
-          <button className="button-text" onClick={this.addMeal}>
+        <div className="inputfield">
+          <input className="name" type="text" name="inputMeal" placeholder="insert food" onChange={this.handleInputMealChange}/>
+          <input className="calorie" type="number" name="inputCalorie" placeholder="insert number of calorie" onChange={this.handleInputCalorieChange}/>
+          <input className="date" type="date" name="inputDate" onChange={this.handleInputDateChange}/>
+          <button className="button-text" type="button" onClick={this.addMeal}>
             add
           </button>
           <button className="show-all" onClick={this.drawMeals}>showall</button>
-          <input className="filter" type="date"
-          // value={this.props.value.filter} onChange={this.onFilterChange}
-          />
-          <button className="buttonfilter" type="submit">filter</button>
+          <input className="filter" type="date" name="filter" onChange={this.handleFilterChange}/>
+          <button className="buttonfilter" type="button" onClick={this.filterMeals}>filter</button>
         </div>
         <button onClick={this.handleClick}>
           Click me! Number of clicks: {this.state.count}
@@ -115,17 +133,18 @@ var Counter = React.createClass({
           <div className="foodholder" onClick={this.deleteMeals}>
               {this.state.meal.map((meal) =>
               <div>
-                <div className="food-item" key={meal.id} id={meal.id}>
+                <div className="food-item" name="listed" key={meal.id} id={meal.id}>
                   <p>{meal.name}</p>
                   <p>{meal.calorie}</p>
                   <p>{meal.date}</p>
                   <div className="buttons" key={meal.id}>
-                    <button className="delete" type="button"></button>
+                    <button className="delete" type="button" id={meal.id} onClick={this.deleteMeals}></button>
                   </div>
                 </div>
               </div>
             )}
           </div>
+          <div className="sum">calorie sum: </div>
         </div>
       </div>
     );

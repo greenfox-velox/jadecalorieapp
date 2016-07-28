@@ -25,19 +25,6 @@ var Counter = React.createClass({
     });
   },
 
-<<<<<<< HEAD
-  addMeal: function () {
-    // this.setState({
-    //   meal[0]: this.state.meal[0].id + 1,
-    // }
-    // );
-    console.log(this.state.meal.id);
-  },
-  //
-  drawMeals: function () {
-    // this.setState({
-    //   mealElements:
-=======
   addMeal: function (e) {
     this.setState({
       meal: [
@@ -52,23 +39,7 @@ var Counter = React.createClass({
   },
 
   drawMeals: function () {
-
-    this.setState({
-      mealElements: this.state.meal.map((meal) => this.insertHtml(meal)
-      // <div>
-      //   <div className="food-item" id={meal.id}>
-      //     <p>{meal.name}</p>
-      //     <p>{meal.calorie}</p>
-      //     <p>{meal.date}</p>
-      //     <div className="buttons">
-      //       <button className="delete" type="button" onClick={this.deleteMeals} ></button>
-      //     </div>
-      //   </div>
-      // </div>
-    )});
->>>>>>> dfb0b899040251657266af03e08c0da6531ca4a6
   },
-
 
   // filterMeals: function () {
   // },
@@ -119,7 +90,6 @@ var Counter = React.createClass({
           Click me! Number of clicks: {this.state.count}
         </button>
         <div className="food-list">
-<<<<<<< HEAD
           <div className="foodholder" onClick={this.deleteMeals}>
               {this.state.meal.map((meal) =>
               <div>
@@ -132,19 +102,11 @@ var Counter = React.createClass({
                   </div>
                 </div>
               </div>
-              // <div>
-              //   <p>{meal.id}</p>
-              //   <p>{meal.name}</p>
-              // </div>
-            )})}
+            )}
             <div className="fodo-item" id="food">here comes the foods</div>
             <div className="buttons"  id="1">
               <button className="delete" type="button"></button>
             </div>
-=======
-          <div className="foodholder">
-              {this.state.mealElements}
->>>>>>> dfb0b899040251657266af03e08c0da6531ca4a6
           </div>
         </div>
       </div>

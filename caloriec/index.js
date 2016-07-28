@@ -30,7 +30,7 @@ var Counter = React.createClass({
     //   meal[0]: this.state.meal[0].id + 1,
     // }
     // );
-    console.log(this.getInitialState().meal[0].id);
+    console.log(this.state.meal[0].id);
   },
   //
   drawMeals: function () {
@@ -71,9 +71,9 @@ var Counter = React.createClass({
         </button>
         <div className="food-list">
           <div className="foodholder">
-            <div className="todo-item">here comes the foods</div>
+            <div className="fodo-item" id="food">here comes the foods</div>
             <div className="buttons"  id="1">
-              <button className="delete" type="button"></button>
+              <button className="delete" type="button" onClick={}></button>
             </div>
           </div>
         </div>

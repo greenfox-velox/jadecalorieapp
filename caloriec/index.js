@@ -79,9 +79,9 @@ var Counter = React.createClass({
           <button className="button-text" onClick={this.addMeal}>
             add
           </button>
-          <button className="show-all">showall</button>
+          <button className="show-all" onClick={this.drawMeals}>showall</button>
           <input className="filter" type="date"/>
-          <button className="buttonfilter" onClick={this.drawMeals}>filter</button>
+          <button className="buttonfilter">filter</button>
         </div>
         <button onClick={this.handleClick}>
           Click me! Number of clicks: {this.state.count}

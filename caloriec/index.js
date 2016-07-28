@@ -20,17 +20,17 @@ var Counter = React.createClass({
 
   handleClick: function () {
     this.setState({
-      count: this.state.count + 1,
+      count: this.state.count + 2,
     });
   },
 
-  // addMeal: function () {
-  //   this.setState({
-  //     count.meal: this.state.count.meal[0]['calorie'] + 1,
-  //   }
-  //   console.log(count.meal[0]['calorie']);
-  //   );
-  // },
+  addMeal: function () {
+    // this.setState({
+    //   meal[0]: this.state.meal[0].id + 1,
+    // }
+    // );
+    console.log(this.getInitialState().meal[0].id);
+  },
   //
   // drawMeals: function () {
   //
@@ -58,8 +58,8 @@ var Counter = React.createClass({
           <input className="name" type="text" placeholder="insert food"/>
           <input className="calorie" type="number" placeholder="insert number of calorie"/>
           <input className="date" type="date"/>
-          <button className="button-text" onClick={this.handleClick}>
-            add {this.state.count}
+          <button className="button-text" onClick={this.addMeal}>
+            add
           </button>
           <button className="show-all">showall</button>
           <input className="filter" type="date"/>
@@ -73,7 +73,6 @@ var Counter = React.createClass({
             <div className="todo-item">here comes the foods</div>
             <div className="buttons"  id="1">
               <button className="delete" type="button"></button>
-              <input className="check" type="checkbox"/>
             </div>
           </div>
         </div>

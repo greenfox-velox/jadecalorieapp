@@ -35,11 +35,21 @@ var Counter = React.createClass({
   //
   drawMeals: function () {
     this.setState({
-      oneelement: this.state.meal.map((meal) =>
+      mealElements: this.state.meal.map((meal) =>
       <div>
-        <p>{meal.id}</p>
-        <p>{meal.name}</p>
+        <div className="food-item" id={meal.id}>
+          <p>{meal.name}</p>
+          <p>{meal.calorie}</p>
+          <p>{meal.date}</p>
+          <div className="buttons">
+            <button className="delete" type="button"></button>
+          </div>
+        </div>
       </div>
+      // <div>
+      //   <p>{meal.id}</p>
+      //   <p>{meal.name}</p>
+      // </div>
     )});
   },
   //
@@ -80,7 +90,7 @@ var Counter = React.createClass({
         </button>
         <div className="food-list">
           <div className="foodholder">
-              {this.state.oneelement}
+              {this.state.mealElements}
             <div className="fodo-item" id="food">here comes the foods</div>
             <div className="buttons"  id="1">
               <button className="delete" type="button" onClick={this.deleteMeals}></button>

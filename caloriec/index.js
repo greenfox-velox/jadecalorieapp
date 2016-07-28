@@ -39,34 +39,37 @@ var Counter = React.createClass({
     );
     console.log(this.state);
   },
-  //
-  drawMeals: function () {
-    this.setState({
-      mealElements: this.state.meal.map((meal) =>
-      <div>
-        <div className="food-item" id={meal.id}>
-          <p>{meal.name}</p>
-          <p>{meal.calorie}</p>
-          <p>{meal.date}</p>
-          <div className="buttons">
-            <button className="delete" type="button" onClick={this.deleteMeals} ></button>
-          </div>
-        </div>
-      </div>
-    )});
-  },
-  //
-  // filterMeals: function () {
-  //
-  // },
-  //
-  deleteMeals: function () {
 
+  drawMeals: function () {
   },
-  //
-  // sumCalorie: function () {
-  //
+
+  // filterMeals: function () {
   // },
+
+  deleteMeals: function () {
+    // this.setState({
+    //   mealElements: this.state.meal.map((meal) =>
+    //   <div>
+    //     <div className="food-item" id={meal.id}>
+    //       <p></p>
+    //       <p></p>
+    //       <p></p>
+    //       <div className="buttons">
+    //       </div>
+    //     </div>
+    //   </div>
+    //   // <div>
+    //   //   <p>{meal.id}</p>
+    //   //   <p>{meal.name}</p>
+    //   // </div>
+    // )});
+    this.setState({
+     meal: this.state.meal[1].splice
+    });
+    console.log(this.state.meal[0]);
+    console.log(this.state.meal[1]);
+    this.drawMeals()
+  },
 
   render: function () {
     return (
@@ -89,8 +92,23 @@ var Counter = React.createClass({
           Click me! Number of clicks: {this.state.count}
         </button>
         <div className="food-list">
-          <div className="foodholder">
-              {this.state.mealElements}
+          <div className="foodholder" onClick={this.deleteMeals}>
+              {this.state.meal.map((meal) =>
+              <div>
+                <div className="food-item" id={meal.id}>
+                  <p>{meal.name}</p>
+                  <p>{meal.calorie}</p>
+                  <p>{meal.date}</p>
+                  <div className="buttons">
+                    <button className="delete" type="button"></button>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="fodo-item" id="food">here comes the foods</div>
+            <div className="buttons"  id="1">
+              <button className="delete" type="button"></button>
+            </div>
           </div>
         </div>
       </div>

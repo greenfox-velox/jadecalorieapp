@@ -41,8 +41,24 @@ var Counter = React.createClass({
   drawMeals: function () {
   },
 
-  // filterMeals: function () {
+  // onFilterChange: function(e) {
+  //   this.props.onChange(Object.assign({}, this.props.value, {filter: e.target.value}));
+  //   console.log(e.target.value);
   // },
+  //
+  // onSubmit: function(e) {
+  //   e.preventDefault();
+  //   this.props.onSubmit();
+  //   console.log(e.target.value);
+  // },
+
+
+
+
+  filterMeals: function () {
+
+    // e.target.value,
+  },
 
   deleteMeals: function () {
     // this.setState({
@@ -75,7 +91,7 @@ var Counter = React.createClass({
       <header className="container">
         <h1 className="col-sm-8">calorie counter</h1>
       </header>
-        <div className="inputfield">
+        <div className="inputfield" onSubmit={this.onSubmit}>
           <input className="name" type="text" placeholder="insert food" onChange={this.addMeal}/>
           <input className="calorie" type="number" placeholder="insert number of calorie"/>
           <input className="date" type="date"/>
@@ -83,8 +99,10 @@ var Counter = React.createClass({
             add
           </button>
           <button className="show-all" onClick={this.drawMeals}>showall</button>
-          <input className="filter" type="date"/>
-          <button className="buttonfilter">filter</button>
+          <input className="filter" type="date"
+          // value={this.props.value.filter} onChange={this.onFilterChange}
+          />
+          <button className="buttonfilter" type="submit">filter</button>
         </div>
         <button onClick={this.handleClick}>
           Click me! Number of clicks: {this.state.count}
@@ -93,11 +111,11 @@ var Counter = React.createClass({
           <div className="foodholder" onClick={this.deleteMeals}>
               {this.state.meal.map((meal) =>
               <div>
-                <div className="food-item" id={meal.id}>
+                <div className="food-item" key={meal.id} id={meal.id}>
                   <p>{meal.name}</p>
                   <p>{meal.calorie}</p>
                   <p>{meal.date}</p>
-                  <div className="buttons">
+                  <div className="buttons" key={meal.id}>
                     <button className="delete" type="button"></button>
                   </div>
                 </div>

@@ -26,11 +26,13 @@ var Counter = React.createClass({
   },
 
   addMeal: function (e) {
+    console.log(e.target.textContent);
     this.setState({
       meal: [
         {
           id: this.state.meal.length + 1,
-          name: e.target.value,
+          // name: e.target.value,
+          name: 'kiscica',
         }
       ]
     }

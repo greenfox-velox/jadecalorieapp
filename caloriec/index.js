@@ -1,6 +1,6 @@
 var Counter = React.createClass({
   getInitialState: function () {
-    return { count: 0,
+    return {
       meal: [
         {
           id: 1,
@@ -26,16 +26,20 @@ var Counter = React.createClass({
   },
 
   addMeal: function (e) {
-    this.setState({
-      meal: [
+    let generatedId = this.state.meal.length + 1;
+    let newMeal = e.target.value;
+    console.log(generatedId);
+    console.log(newMeal);
+    console.log(this.state.meal);
+    this.setState(
+      {meal: this.state.meal.concat([
         {
-          id: this.state.meal.length + 1,
-          name: e.target.value,
+          id: generatedId,
+          name: newMeal,
         }
-      ]
-    }
+      ])
+      }
     );
-    console.log(this.state);
   },
 
   drawMeals: function () {
@@ -121,10 +125,6 @@ var Counter = React.createClass({
                 </div>
               </div>
             )}
-            <div className="fodo-item" id="food">here comes the foods</div>
-            <div className="buttons"  id="1">
-              <button className="delete" type="button"></button>
-            </div>
           </div>
         </div>
       </div>

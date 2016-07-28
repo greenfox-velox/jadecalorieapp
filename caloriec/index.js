@@ -84,10 +84,6 @@ var Counter = React.createClass({
         <div className="food-list">
           <div className="foodholder">
               {this.state.mealElements}
-            <div className="fodo-item" id="food">here comes the foods</div>
-            <div className="buttons"  id="1">
-              <button className="delete" type="button"></button>
-            </div>
           </div>
         </div>
       </div>

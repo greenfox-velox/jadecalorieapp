@@ -42,14 +42,10 @@ var Counter = React.createClass({
           <p>{meal.calorie}</p>
           <p>{meal.date}</p>
           <div className="buttons">
-            <button className="delete" type="button"></button>
+            <button className="delete" type="button" onClick={this.deleteMeals} ></button>
           </div>
         </div>
       </div>
-      // <div>
-      //   <p>{meal.id}</p>
-      //   <p>{meal.name}</p>
-      // </div>
     )});
   },
   //

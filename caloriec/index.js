@@ -32,9 +32,9 @@ var Counter = React.createClass({
     console.log(this.getInitialState().meal[0].id);
   },
   //
-  // drawMeals: function () {
-  //
-  // },
+  drawMeals: function () {
+
+  },
   //
   // filterMeals: function () {
   //

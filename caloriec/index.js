@@ -109,7 +109,7 @@ var Meals = React.createClass({
               : console.log('no items')
             )}
           </div>
-          <div className="sum">calorie sum: </div>
+          <div className="sum">calorie sum: {this.state.meal.reduce((sum, meal) => meal.show ? sum + meal.calorie : 0, 0)} </div>
         </div>
       </div>
     );

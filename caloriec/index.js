@@ -66,10 +66,8 @@ var Meals = React.createClass({
   },
 
   deleteMeals: function (e) {
-    console.log(e.target.id);
     this.setState({
       meal: this.state.meal.filter(function(meal){
-      console.log(meal.id);
       return parseInt(e.target.id) !== meal.id}),
     })
   },

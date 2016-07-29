@@ -6,23 +6,18 @@ var Counter = React.createClass({
           id: 1,
           name: 'kolbasz',
           calorie: 1000,
-          date: '2016.05.12'
+          date: '2016.05.12',
+          show: true
         },
         {
           id: 2,
           name: 'mushroom',
           calorie: 200,
-          date: '2016.05.11'
+          date: '2016.05.11',
+          show: true
         },
       ]
     };
-  },
-
-  handleClick: function () {
-    this.setState({
-
-      count: this.state.count + 1,
-    });
   },
 
   handleInputMealChange: function(e) {
@@ -49,7 +44,8 @@ var Counter = React.createClass({
       id: generatedId,
       name: this.state.inputMeal,
       calorie: Number(this.state.inputCalorie),
-      date: this.state.inputDate
+      date: this.state.inputDate,
+      show: true
       };
     console.log(generatedId);
     console.log(newMeal);
@@ -72,10 +68,19 @@ var Counter = React.createClass({
 
   filterMeals: function () {
     console.log(this.state.filter);
-    this.setState({
-      meal: this.state.meal.filter(function(meal){
-      return this.state.filter === meal.date}),
-    })
+    console.log(this.state.meal[0].date);
+    console.log(this.state.meal.length);
+    // for (var i = 0; i < this.state.meal.length; i++) {
+    //   if (this.state.meal[i].date !== this.state.filter) {
+    //     // console.log(this.state.meal[i].show);
+    //     this.state.meal[i].show = false;
+    //   }
+    // }
+    // this.setState({
+    //   meal: this.state.meal.filter(function(meal){
+    //   return this.state.filter === meal.date}),
+    //   show: false
+    // })
   },
 
   deleteMeals: function (e) {
@@ -85,29 +90,6 @@ var Counter = React.createClass({
       console.log(meal.id);
       return parseInt(e.target.id) !== meal.id}),
     })
-
-    // this.setState({
-    //   mealElements: this.state.meal.map((meal) =>
-    //   <div>
-    //     <div className="food-item" id={meal.id}>
-    //       <p></p>
-    //       <p></p>
-    //       <p></p>
-    //       <div className="buttons">
-    //       </div>
-    //     </div>
-    //   </div>
-    //   // <div>
-    //   //   <p>{meal.id}</p>
-    //   //   <p>{meal.name}</p>
-    //   // </div>
-    // )});
-    // this.setState({
-    //  meal: this.state.meal[1].splice
-    // });
-    // console.log(this.state.meal[0]);
-    // console.log(this.state.meal[1]);
-    // this.drawMeals()
   },
 
   render: function () {
@@ -132,7 +114,7 @@ var Counter = React.createClass({
         </button>
         <div className="food-list">
           <div className="foodholder">
-              {this.state.meal.map((meal) =>
+              {this.state.meal.map((meal) => (meal.date === this.state.filter) || (!this.state.filter) ?
               <div key={meal.id}>
                 <div className="food-item" name="listed">
                   <p>{meal.name}</p>
@@ -143,6 +125,7 @@ var Counter = React.createClass({
                   </div>
                 </div>
               </div>
+              : console.log('nincs nem is volt')
             )}
           </div>
           <div className="sum">calorie sum: </div>

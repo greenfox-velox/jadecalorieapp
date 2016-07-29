@@ -1,4 +1,4 @@
-var Counter = React.createClass({
+var Meals = React.createClass({
   getInitialState: function () {
     return {
       meal: [
@@ -12,19 +12,12 @@ var Counter = React.createClass({
         {
           id: 2,
           name: 'mushroom',
-          calorie: 567,
+          calorie: 200,
           date: '2016.05.11',
           show: true
         },
       ]
     };
-  },
-
-  handleClick: function () {
-    this.setState({
-
-      count: this.state.count + 1,
-    });
   },
 
   handleInputMealChange: function(e) {
@@ -58,7 +51,6 @@ var Counter = React.createClass({
     console.log(newMeal);
     console.log(this.state.meal);
     this.setState({
-
       meal: this.state.meal.concat(newMeal),
       }
     );
@@ -69,16 +61,8 @@ var Counter = React.createClass({
     console.log(this.state.meal);
   },
 
-  handleFilterChange: function(e) {
+  filterMeals: function(e) {
      this.setState({filter: e.target.value});
-  },
-
-  filterMeals: function () {
-    console.log(this.state.filter);
-    this.setState({
-      meal: this.state.meal.filter(function(meal){
-      return this.state.filter === meal.date}),
-    })
   },
 
   deleteMeals: function (e) {
@@ -104,15 +88,14 @@ var Counter = React.createClass({
             add
           </button>
           <button className="show-all" onClick={this.consoleMemory}>showall</button>
-          <input className="filter" type="date" name="filter" onChange={this.handleFilterChange}/>
-          <button className="buttonfilter" type="button" onClick={this.filterMeals}>filter</button>
+          <input className="filter" type="date" name="filter" onChange={this.filterMeals}/>
         </div>
         <button onClick={this.handleClick}>
           Click me! Number of clicks: {this.state.count}
         </button>
         <div className="food-list">
           <div className="foodholder">
-              {this.state.meal.map((meal) =>
+              {this.state.meal.map((meal) => (meal.date === this.state.filter) || (!this.state.filter) ?
               <div key={meal.id}>
                 <div className="food-item" name="listed">
                   <p>{meal.name}</p>
@@ -123,6 +106,7 @@ var Counter = React.createClass({
                   </div>
                 </div>
               </div>
+              : console.log('no items')
             )}
           </div>
           <div className="sum">calorie sum: {this.state.meal.reduce((sum, meal) => meal.show ? sum + meal.calorie : 0, 0)} </div>
@@ -132,6 +116,6 @@ var Counter = React.createClass({
   }
 });
 ReactDOM.render(
-  <Counter />,
+  <Meals />,
   document.querySelector('.main')
 );

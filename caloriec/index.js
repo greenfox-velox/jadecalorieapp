@@ -1,6 +1,6 @@
 var Counter = React.createClass({
   getInitialState: function () {
-    return { count: 0,
+    return {
       meal: [
         {
           id: 1,
@@ -26,16 +26,20 @@ var Counter = React.createClass({
   },
 
   addMeal: function (e) {
-    this.setState({
-      meal: [
+    let generatedId = this.state.meal.length + 1;
+    let newMeal = e.target.value;
+    console.log(generatedId);
+    console.log(newMeal);
+    console.log(this.state.meal);
+    this.setState(
+      {meal: this.state.meal.concat([
         {
-          id: this.state.meal.length + 1,
-          name: e.target.value,
+          id: generatedId,
+          name: newMeal,
         }
-      ]
-    }
+      ])
+      }
     );
-    console.log(this.state);
   },
 
   drawMeals: function () {
@@ -44,7 +48,22 @@ var Counter = React.createClass({
   // filterMeals: function () {
   // },
 
-  deleteMeals: function () {
+  deleteMeals: function (e) {
+    // console.log(e.target.parentElement.id);
+    // this.target.parentElement.state.onDelete
+    // this.setState(
+    //   e.target.parentElement.id += 1
+    this.state.meal.filter((e) => {
+      // if (e.target.parentElement.id !== ){
+      //
+      // }
+      console.log(e.target.parentElement.id);
+    })
+    // );
+    // this.setState(
+    //   deletedItem.this.render(deletedItem, 1)
+    // );
+
     // this.setState({
     //   mealElements: this.state.meal.map((meal) =>
     //   <div>
@@ -61,12 +80,12 @@ var Counter = React.createClass({
     //   //   <p>{meal.name}</p>
     //   // </div>
     // )});
-    this.setState({
-     meal: this.state.meal[1].splice
-    });
-    console.log(this.state.meal[0]);
-    console.log(this.state.meal[1]);
-    this.drawMeals()
+    // this.setState(e){
+    //  meal: this.state.meal[1].splice
+    // });
+    // console.log(this.state.meal[0]);
+    // console.log(this.state.meal[1]);
+    // this.drawMeals()
   },
 
   render: function () {
@@ -90,23 +109,17 @@ var Counter = React.createClass({
           Click me! Number of clicks: {this.state.count}
         </button>
         <div className="food-list">
-          <div className="foodholder" onClick={this.deleteMeals}>
+          <div className="foodholder">
               {this.state.meal.map((meal) =>
               <div>
                 <div className="food-item" id={meal.id}>
                   <p>{meal.name}</p>
                   <p>{meal.calorie}</p>
                   <p>{meal.date}</p>
-                  <div className="buttons">
-                    <button className="delete" type="button"></button>
-                  </div>
+                  <button className="delete" type="button" onClick={this.deleteMeals}></button>
                 </div>
               </div>
             )}
-            <div className="fodo-item" id="food">here comes the foods</div>
-            <div className="buttons"  id="1">
-              <button className="delete" type="button"></button>
-            </div>
           </div>
         </div>
       </div>

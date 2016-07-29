@@ -6,13 +6,15 @@ var Counter = React.createClass({
           id: 1,
           name: 'kolbasz',
           calorie: 999,
-          date: '2016.05.12'
+          date: '2016.05.12',
+          show: true
         },
         {
           id: 2,
           name: 'mushroom',
           calorie: 567,
-          date: '2016.05.11'
+          date: '2016.05.11',
+          show: true
         },
       ]
     };
@@ -49,7 +51,8 @@ var Counter = React.createClass({
       id: generatedId,
       name: this.state.inputMeal,
       calorie: Number(this.state.inputCalorie),
-      date: this.state.inputDate
+      date: this.state.inputDate,
+      show: true
       };
     console.log(generatedId);
     console.log(newMeal);
@@ -85,29 +88,6 @@ var Counter = React.createClass({
       console.log(meal.id);
       return parseInt(e.target.id) !== meal.id}),
     })
-
-    // this.setState({
-    //   mealElements: this.state.meal.map((meal) =>
-    //   <div>
-    //     <div className="food-item" id={meal.id}>
-    //       <p></p>
-    //       <p></p>
-    //       <p></p>
-    //       <div className="buttons">
-    //       </div>
-    //     </div>
-    //   </div>
-    //   // <div>
-    //   //   <p>{meal.id}</p>
-    //   //   <p>{meal.name}</p>
-    //   // </div>
-    // )});
-    // this.setState({
-    //  meal: this.state.meal[1].splice
-    // });
-    // console.log(this.state.meal[0]);
-    // console.log(this.state.meal[1]);
-    // this.drawMeals()
   },
 
   render: function () {
@@ -145,7 +125,7 @@ var Counter = React.createClass({
               </div>
             )}
           </div>
-          <div className="sum">calorie sum: </div>
+          <div className="sum">calorie sum: {this.state.meal.reduce((sum, meal) => meal.show ? sum + meal.calorie : 0, 0)} </div>
         </div>
       </div>
     );

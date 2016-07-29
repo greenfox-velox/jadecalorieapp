@@ -18,24 +18,19 @@ var Counter = React.createClass({
     };
   },
 
-  handleClick: function () {
-    this.setState({
-
-      count: this.state.count + 1,
-    });
-  },
-
   addMeal: function (e) {
     let generatedId = this.state.meal.length + 1;
-    let newMeal = e.target.value;
+    // let newMeal = e.target.value;
     console.log(generatedId);
-    console.log(newMeal);
+    // console.log(newMeal);
     console.log(this.state.meal);
     this.setState(
       {meal: this.state.meal.concat([
         {
           id: generatedId,
-          name: newMeal,
+          name: e.target.value,
+          // calorie: this.state.calorie,
+          // date: this.state.date,
         }
       ])
       }
@@ -44,10 +39,10 @@ var Counter = React.createClass({
 
   drawMeals: function () {
   },
-
+  //
   // filterMeals: function () {
   // },
-
+  //
   deleteMeals: function () {
     // this.setState({
     //   mealElements: this.state.meal.map((meal) =>
@@ -80,7 +75,7 @@ var Counter = React.createClass({
         <h1 className="col-sm-8">calorie counter</h1>
       </header>
         <div className="inputfield">
-          <input className="name" type="text" placeholder="insert food" onChange={this.addMeal}/>
+          <input className="name" type="text" placeholder="insert food" value={this.state.value} onChange={this.addMeal} />
           <input className="calorie" type="number" placeholder="insert number of calorie"/>
           <input className="date" type="date"/>
           <button className="button-text" onClick={this.addMeal}>
@@ -90,9 +85,6 @@ var Counter = React.createClass({
           <input className="filter" type="date"/>
           <button className="buttonfilter">filter</button>
         </div>
-        <button onClick={this.handleClick}>
-          Click me! Number of clicks: {this.state.count}
-        </button>
         <div className="food-list">
           <div className="foodholder" onClick={this.deleteMeals}>
               {this.state.meal.map((meal) =>

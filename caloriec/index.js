@@ -5,7 +5,7 @@ var Meals = React.createClass({
         {
           id: 1,
           name: 'kolbasz',
-          calorie: 999,
+          calorie: 1000,
           date: '2016.05.12',
           show: true
         },

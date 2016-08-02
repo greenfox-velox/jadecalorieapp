@@ -1,23 +1,26 @@
 var Meals = React.createClass({
   getInitialState: function () {
     return {
-      meal: [
-        {
-          id: 1,
-          name: 'kolbasz',
-          calorie: 1000,
-          date: '2016.05.12',
-          show: true
-        },
-        {
-          id: 2,
-          name: 'mushroom',
-          calorie: 200,
-          date: '2016.05.11',
-          show: true
-        },
-      ]
+      meal: []
     };
+  },
+
+  componentDidMount: function() {
+    let that = this;
+    fetch('http://localhost:3000/meals', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+      cache: 'default',
+    }).then(function(response){
+      return response.json();
+    }).then(function(mealResponse){
+      that.setState({meal: mealResponse});
+      console.log(mealResponse);
+    })
   },
 
   handleInputMealChange: function(e) {

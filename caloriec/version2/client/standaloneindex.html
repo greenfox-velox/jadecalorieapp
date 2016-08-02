@@ -17,26 +17,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
     <script type="text/babel">
       var Counter = React.createClass({
+
         getInitialState: function () {
           return {
-            meal: [
-              // {
-              //   id: 1,
-              //   name: 'kolbasz',
-              //   calorie: 999,
-              //   date: '2016.05.12'
-              // },
-              // {
-              //   id: 2,
-              //   name: 'mushroom',
-              //   calorie: 567,
-              //   date: '2016.05.11'
-              // },
-            ]
+            meal: []
           };
         },
 
         componentDidMount: function() {
+          let that = this;
           fetch('http://localhost:3000/meals', {
             method: 'GET',
             headers: {
@@ -46,9 +35,13 @@
             mode: 'cors',
             cache: 'default',
           }).then(function(response){
-            Counter.setState({meal: response});
-          })
+            return response.json();
+          }).then(function(mealResponse){
+            that.setState({meal: mealResponse});
+            console.log(mealResponse);
+          })   
         },
+
 
         handleClick: function () {
           this.setState({

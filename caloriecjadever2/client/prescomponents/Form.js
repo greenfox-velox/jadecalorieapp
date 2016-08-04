@@ -1,21 +1,23 @@
-import React, { PropTypes } from 'react';
+// import React, { PropTypes } from 'react';
+import React from 'react';
+import Meals from '../index';
 
-const Form = ({onChange, onClick}) => (
+const Form = ({ onChange, onClick }) => (
   <div className="inputfield">
-    <input className="name" type="text" name="inputMeal" placeholder="insert food" onChange={this.handleInputMealChange}/>
-    <input className="calorie" type="number" name="inputCalorie" placeholder="insert number of calorie" onChange={this.handleInputCalorieChange}/>
-    <input className="date" type="date" name="inputDate" onChange={this.handleInputDateChange}/>
-    <button className="button-text" type="button" onClick={this.addMeal}>
+    <input className="name" type="text" name="inputMeal" placeholder="insert food" onChange={Meals.handleInputMealChange}/>
+    <input className="calorie" type="number" name="inputCalorie" placeholder="insert number of calorie" onChange={Meals.handleInputCalorieChange}/>
+    <input className="date" type="date" name="inputDate" onChange={Meals.handleInputDateChange}/>
+    <button className="button-text" type="button" onClick={Meals.addMeal}>
       add
     </button>
-    <button className="show-all" onClick={this.consoleMemory}>showall</button>
-    <input className="filter" type="date" name="filter" onChange={this.filterMeals}/>
+    <button className="show-all" onClick={Meals.consoleMemory}>showall</button>
+    <input className="filter" type="date" name="filter" onChange={Meals.filterMeals}/>
   </div>
 )
 
-Form.propTypes = {
-  onClick:  PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
-}
+// Form.propTypes = {
+//   onClick:  PropTypes.func.isRequired,
+//   onChange: PropTypes.func.isRequired
+// }
 
 export default Form

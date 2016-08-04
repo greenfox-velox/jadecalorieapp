@@ -7,10 +7,10 @@ import Form from './Form';
 const App = () => (
   <div>
     <Form />
-    // <MealList />
   </div>
+);
 
-
+  // <MealList />
 
   // <div className="jumbotron">
   //   <header className="container">
@@ -45,6 +45,6 @@ const App = () => (
   //     <div className="sum">calorie sum: {this.state.meal.reduce((sum, meal) => meal.show ? sum + meal.calorie : 0, 0)} </div>
   //   </div>
   // </div>
-);
+
 
 export default App

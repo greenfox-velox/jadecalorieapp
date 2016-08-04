@@ -1,32 +1,32 @@
 import React, { PropTypes } from 'react';
-import Meals from 'index';
+import Meals from '../index';
 
 const Meal = ({ onClick, calories, name, id }) => (
   <div
   className="food-item"
   name="listed"
   >
-    <p>{name}</p>
-    <p>{calories}</p>
-    <p>{date}</p>
+    <p>{meal.name}</p>
+    <p>{meal.calories}</p>
+    <p>{meal.date}</p>
     <div
     className="buttons"
     >
       <button
       className="delete"
       type="button"
-      id={id}
-      onClick={this.deleteMeals}>
+      id={meal.id}
+      onClick={Meals.deleteMeals}>
       </button>
   </div>
 )
 
-Meal.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  calories: PropTypes.number.isRequired,
-  date: PropTypes.string.isRequired
-}
+// Meal.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+//   id: PropTypes.number.isRequired,
+//   name: PropTypes.string.isRequired,
+//   calories: PropTypes.number.isRequired,
+//   date: PropTypes.string.isRequired
+// }
 
 export default Meal

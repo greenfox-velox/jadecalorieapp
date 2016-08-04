@@ -1,30 +1,46 @@
 'use strict';
-import App from './prescomponents/App';
+import 'babel-polyfill';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './prescomponents/App'
 
 var Meals = React.createClass({
   getInitialState: function () {
     return {
-      meal: []
+      meal: [
+        {
+          id: 1,
+          name: 'kolbasz',
+          calorie: 999,
+          date: '2016.05.12'
+        },
+        {
+          id: 2,
+          name: 'mushroom',
+          calorie: 567,
+          date: '2016.05.11'
+        },
+      ]
     };
   },
-
-  componentDidMount: function() {
-    let that = this;
-    fetch('http://localhost:3000/meals', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      mode: 'cors',
-      cache: 'default',
-    }).then(function(response){
-      return response.json();
-    }).then(function(mealResponse){
-      that.setState({meal: mealResponse});
-      console.log(mealResponse);
-    })
-  },
+  //
+  // componentDidMount: function() {
+  //   let that = this;
+  //   fetch('http://localhost:3000/meals', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     mode: 'cors',
+  //     cache: 'default',
+  //   }).then(function(response){
+  //     return response.json();
+  //   }).then(function(mealResponse){
+  //     that.setState({meal: mealResponse});
+  //     console.log(mealResponse);
+  //   })
+  // },
 
   handleInputMealChange: function(e) {
      this.setState({inputMeal: e.target.value});
@@ -52,13 +68,13 @@ var Meals = React.createClass({
       calorie: Number(this.state.inputCalorie),
       date: this.state.inputDate,
       show: true
-      };
+    };
     console.log(generatedId);
     console.log(newMeal);
     console.log(this.state.meal);
     this.setState({
       meal: this.state.meal.concat(newMeal),
-      }
+    }
     );
     console.log(this.state.meal);
   },

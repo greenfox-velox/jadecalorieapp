@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const Meal = ({ onClick, calories, name, id }) => (
+const Meal = ({ onClick, name, calories, date, id }) => (
   <li
     onClick={onClick}
     style={{
@@ -8,6 +8,8 @@ const Meal = ({ onClick, calories, name, id }) => (
     }}
   >
     {name}
+    {calories}
+    {date}
   </li>
 )
 

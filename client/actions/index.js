@@ -1,11 +1,14 @@
 let nextMealId = 0;
-export const addMeal = (name) => {
+export const addMeal = (name, calories, date) => {
   return {
     type: 'ADD_MEAL',
     id: nextMealId++,
     name,
+    calories,
+    date
   };
 };
+
 
 export const setVisibilityFilter = (filter) => {
   return {

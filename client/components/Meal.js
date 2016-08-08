@@ -1,16 +1,14 @@
 import React, { PropTypes } from 'react'
 
 const Meal = ({ onClick, name, calories, date, id }) => (
-  <li
+  <div
     onClick={onClick}
-    style={{
-      textDecoration: id > 0 ? 'line-through' : 'none'
-    }}
+    className="food-item" name="listed">
   >
-    <h1>{name}</h1>
-    {calories}
-    {date}
-  </li>
+    <p>{name}</p>
+    <p>{calories}</p>
+    <p>{date}</p>
+  </div>
 )
 
 Meal.propTypes = {

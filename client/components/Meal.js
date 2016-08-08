@@ -7,7 +7,7 @@ const Meal = ({ onClick, name, calories, date, id }) => (
       textDecoration: id > 0 ? 'line-through' : 'none'
     }}
   >
-    {name}
+    <h1>{name}</h1>
     {calories}
     {date}
   </li>

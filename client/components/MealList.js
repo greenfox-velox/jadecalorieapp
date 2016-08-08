@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react'
 import Meal from './Meal'
 
 const MealList = ({ meals, onMealClick }) => (
-  <ul>
+
+  <div className="food-item" name="listed">
     {meals.map(meal =>
       <Meal
         key={meal.id}
@@ -10,7 +11,7 @@ const MealList = ({ meals, onMealClick }) => (
         onClick={() => onMealClick(meal.id)}
       />
     )}
-  </ul>
+  </div>
 )
 
 MealList.propTypes = {

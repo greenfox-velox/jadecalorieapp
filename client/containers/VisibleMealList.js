@@ -3,14 +3,14 @@ import { toggleMeal } from '../actions'
 import MealList from '../components/MealList'
 
 const getVisibleMeals = (meals, filter) => {
-  switch (filter) {
-    case 'SHOW_ALL':
-      return meals;
-    case 'SHOW_FILTERED':
-      return meals.filter(m => !m.date);
+  console.log('before if statement: ' + filter);
+  if (filter) {
+      return meals.filter(m => (m.date === filter) );
+
     // case 'SHOW_ACTIVE':
     //   return meals.filter(t => !t.completed)
   }
+  return meals;
 };
 
 const mapStateToProps = (state) => {

@@ -9,7 +9,8 @@ const App = () => (
     <AddMeal />
     <FilterDate />
     <VisibleMealList />
-    <Footer />
+    {// <Footer />
+    }
   </div>
 )
 

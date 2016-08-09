@@ -1,4 +1,4 @@
-let nextMealId = 0;
+let nextMealId = 3;
 export const addMeal = (name, calories, date) => {
   return {
     type: 'ADD_MEAL',

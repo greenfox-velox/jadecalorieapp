@@ -1,8 +1,6 @@
 'use strict';
 import React from 'react';
 
-
-
 const InputMeal = ({onClick}) => {
   let inputMeal;
   let inputCalories;

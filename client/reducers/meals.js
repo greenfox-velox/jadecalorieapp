@@ -23,11 +23,6 @@ const meal = (state, action) => {
         calories: action.calories,
         date: action.date,
       };
-    case 'TOGGLE_MEAL':
-      if (state.id !== action.id) {
-        return state;
-      }
-
       return Object.assign({}, state, {
         completed: !state.completed,
       });
@@ -43,10 +38,6 @@ const meals = (state = initmeal, action) => {
         ...state,
         meal(undefined, action),
       ];
-    case 'TOGGLE_MEAL':
-      return state.map(m =>
-        meal(m, action)
-      );
     default:
       return state;
   }

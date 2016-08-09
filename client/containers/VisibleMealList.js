@@ -8,8 +8,6 @@ const getVisibleMeals = (meals, filter) => {
       return meals;
     case 'SHOW_FILTERED':
       return meals.filter(m => !m.date);
-    // case 'SHOW_ACTIVE':
-    //   return meals.filter(t => !t.completed)
   }
 };
 
